@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JM Events</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+        color: white;
+        scroll-behavior: smooth;
+        background: radial-gradient(circle, #000000, #020024);
+    }
+
+    nav {
+        position: fixed;
+        width: 100%;
+        background: rgba(0,0,0,0.7);
+        padding: 15px;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    nav a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+                url("jmhome1.jpg") no-repeat center center/cover;
+
+                 display: flex;
+    flex-direction: column;
+    justify-content: center;   /* 👈 THIS LINE FIXES POSITION */
+    align-items: center;
+    text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 50px;
+        background: rgba(0,0,0,0.6);
+        padding: 15px 30px;
+        border-radius: 10px;
+    }
+
+    .hero p {
+        margin-top: 10px;
+        font-size: 20px;
+        background: rgba(0,0,0,0.5);
+        padding: 10px;
+        border-radius: 8px;
+    }
+
+    section {
+        padding: 60px 20px;
+        background: #111;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .about {
+        max-width: 900px;
+        margin: auto;
+        text-align: center;
+        line-height: 1.8;
+        font-size: 18px;
+    }
+
+    .team {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .card {
+        background: #222;
+        padding: 20px;
+        border-radius: 10px;
+        width: 250px;
+        text-align: center;
+    }
+
+    form {
+        max-width: 500px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+    }
+
+    input, textarea, button {
+        margin: 10px 0;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+    }
+
+    button {
+        background: #28a745;
+        color: white;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #218838;
+    }
+
+    .contact {
+        text-align: center;
+        line-height: 1.8;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        background: black;
+    }
+    .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+/* 3D Background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: #000;
+}
+
+/* Keep Hero above background */
+.hero {
+    position: relative;
+    z-index: 1;
+} 
+
+/* Sections transparent for effect */
+section {
+    background: transparent;
+}
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transition: 0.3s;
+}
+.card img {
+    transition: 0.3s;
+}
+
+.card img:hover {
+    transform: scale(1.1);
+}
+.hero button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #ff9800;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hero button:hover {
+    background: #e68900;
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="#">Home</a>
+    <a href="#about">About</a>
+    <a href="#team">Team</a>
+    <a href="#meeting">Meeting</a>
+    <a href="#contact">Contact</a>
+    <a href="#gallery">Gallery</a>
+</nav>
+
+<!-- HERO -->\
+<!--bonus edit-->
+<div class="hero">
+    <h1>JM Events</h1>
+    <p>We Make Your Events Memorable</p>
+
+    <a href="#meeting">
+        <button>Book Now</button>
+    </a>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+    <h2>About JM Events</h2>
+    <div class="about">
+        <p>
+            JM Events is a professional event management company dedicated to creating unforgettable experiences.
+            We specialize in weddings, corporate events, birthday parties, and premium celebrations.
+        </p>
+         <ul>
+            <li>Wedding Planning & Decoration</li>
+            <li>Corporate Event Management</li>
+            <li>Birthday & Private Parties</li>
+            <li>Venue Selection & Setup</li>
+            <li>Catering & Entertainment</li>
+        </ul>
+        <p>
+            Our team focuses on creativity, planning, and flawless execution to make every event unique and stress-free.
+        </p>
+    </div>
+</section>
+<!-- GALLERY -->
+<section id="gallery">
+    <h2>Our Events Gallery</h2>
+
+    <div class="gallery">
+
+        <img src="img1.jpeg" alt="Event 1">
+        <img src="img13.jpeg" alt="Event 2">
+        <img src="img2.jpeg" alt="Event 3">
+        <img src="img3.jpeg" alt="Event 4">
+        <img src="img4.jpeg" alt="Event 5">
+        <img src="img5.jpeg" alt="Event 6">
+        <img src="img11.jpeg" alt="Event 7">
+        <img src="img6.jpeg" alt="Event 8">
+        <img src="img7.jpeg" alt="Event 9">
+         <img src="img12.jpeg" alt="Event 10">
+
+    </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+    <h2>Our Team</h2>
+    <div class="team">
+
+        <div class="card">
+            <img src="img8.jpeg" alt="Member 1">
+            <h3>JEET DUSARA</h3>
+            <p>Event Manager</p>
+        </div>
+
+        <div class="card">
+            <img src="img9.jpeg" alt="Member 2">
+            <h3>SMIT DUSARA</h3>
+            <p>Logistics Head</p>
+        </div>
+
+        <div class="card">
+            <img src="img10.jpeg" alt="Member 3">
+            <h3>TARUN HARIYAL</h3>
+            <p>Client Coordinator</p>
+        </div>
+
+    </div>
+</section>
+<!-- MEETING -->
+<section id="meeting">
+    <h2>Book a Meeting</h2>
+    <form onsubmit="submitForm(event)">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="date" required>
+        <textarea placeholder="Meeting Purpose" required></textarea>
+        <button type="submit">Schedule Meeting</button>
+    </form>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2>Contact JM Events</h2>
+    <div class="contact">
+        <p>📞 +91 9033575616 Jeet Dusara</p>
+        <p>📞 +91 8140805094 Smit Dusara</p>
+        <p>📍 Veraval, Gujarat</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 JM Events. All Rights Reserved.</p>
+</footer>
+
+<script>
+function submitForm(event) {
+    event.preventDefault();
+    alert("Meeting Scheduled Successfully with JM Events!");
+}
+</script>
+<!-- PARTICLES.JS BACKGROUND -->
+<div id="particles-js"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<!--background-->
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 120 },
+    color: { value: "#ffffff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    move: {
+      enable: true,
+      speed: 3,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out"
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#ffffff",
+      opacity: 0.4,
+      width: 1
+    }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" }
+    }
+  }
+});
+</script>
+</body>
+</html>
