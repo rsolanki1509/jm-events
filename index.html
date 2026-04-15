@@ -24,7 +24,7 @@
         width: 100%;
         background: rgba(0,0,0,0.7);
         padding: 15px;
-        text-align: center;
+        text-align: right;
         z-index: 1000;
     }
 
@@ -70,6 +70,7 @@
     h2 {
         text-align: center;
         margin-bottom: 30px;
+        color: #ff9800;
     }
 
     .about {
@@ -148,6 +149,16 @@
 .gallery img:hover {
     transform: scale(1.05);
 }
+/* 3D Background */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: #000;
+}
 
 /* Keep Hero above background */
 .hero {
@@ -188,7 +199,7 @@ section {
 .hero button {
     margin-top: 20px;
     padding: 12px 25px;
-    background: #ff9800;
+    background: #218838;
     border: none;
     color: white;
     border-radius: 5px;
@@ -196,8 +207,102 @@ section {
 }
 
 .hero button:hover {
-    background: #e68900;
+    background: #218838;
 }
+.meeting-container {
+    display: flex;
+    gap: 30px;
+    max-width: 1000px;
+    margin: auto;
+    flex-wrap: wrap;
+}
+
+.meeting-container form {
+    flex: 1;
+}
+
+.meeting-container .contact {
+    flex: 1;
+    text-align:right;
+}
+.meeting-container .contact {
+    flex: 1;
+    text-align: center;      /* center align text */
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertically center */
+}
+.meeting-container .contact {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.meeting-container form {
+    flex: 1;
+    background: #222;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.meeting-container form input,
+.meeting-container form textarea {
+    background: #111;
+    color: white;
+}
+
+.contact h3 {
+    margin-bottom: 10px;
+    font-size: 22px;
+    color: #218838;
+}
+
+.contact .subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.contact-item {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.05);
+    transition: 0.3s;
+}
+
+.contact-item span {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.contact-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: scale(1.03);
+}
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links a {
+    margin: 0 10px;
+}
+
 </style>
 
 </head>
@@ -205,12 +310,23 @@ section {
 
 <!-- NAVBAR -->
 <nav>
-    <a href="#">Home</a>
-    <a href="#about">About</a>
-    <a href="#team">Team</a>
-    <a href="#meeting">Meeting</a>
-    <a href="#contact">Contact</a>
-    <a href="#gallery">Gallery</a>
+    <div class="nav-container">
+
+        <!-- LOGO -->
+        <div class="logo">
+            <img src="jmlogo.jpeg" alt="JM Events">
+        </div>
+
+        <!-- LINKS -->
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#about">About</a>
+            <a href="#team">Team</a>
+            <a href="#meeting">Meeting</a>
+            <a href="#gallery">Gallery</a>
+        </div>
+
+    </div>
 </nav>
 
 <!-- HERO -->\
@@ -292,23 +408,30 @@ section {
 <!-- MEETING -->
 <section id="meeting">
     <h2>Book a Meeting</h2>
-    <form onsubmit="submitForm(event)">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email" required>
-        <input type="tel" placeholder="Phone Number" required>
-        <input type="date" required>
-        <textarea placeholder="Meeting Purpose" required></textarea>
-        <button type="submit">Schedule Meeting</button>
-    </form>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <h2>Contact JM Events</h2>
-    <div class="contact">
-        <p>📞 +91 9033575616 Jeet Dusara</p>
-        <p>📞 +91 8140805094 Smit Dusara</p>
-        <p>📍 Veraval, Gujarat</p>
+    <div class="meeting-container">
+        
+        <!-- FORM -->
+        <form onsubmit="submitForm(event)">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Phone Number" required>
+            <input type="date" required>
+            <textarea placeholder="Meeting Purpose" required></textarea>
+            <button type="submit">Schedule Meeting</button>
+        </form>
+
+        <!-- CONTACT DETAILS -->
+        <div class="contact">
+    <h3>Get in Touch</h3>
+    <p class="subtitle">We’d love to plan your perfect event. Contact us anytime!</p>
+
+    <div class="contact-item">📞 +91 9033575616<br><span>Jeet Dusara</span></div>
+    <div class="contact-item">📞 +91 8140805094<br><span>Smit Dusara</span></div>
+    <div class="contact-item">📧 jmevents@gmail.com</div>
+    <div class="contact-item">📍 Veraval, Gujarat</div>
+</div>
+
     </div>
 </section>
 
@@ -319,8 +442,67 @@ section {
 <script>
 function submitForm(event) {
     event.preventDefault();
-    alert("Meeting Scheduled Successfully with JM Events!");
+
+    emailjs.send("service_iorlyo6", "template_pnwcsvl", {
+        name: document.querySelector("input[type='text']").value,
+        email: document.querySelector("input[type='email']").value,
+        phone: document.querySelector("input[type='tel']").value,
+        date: document.querySelector("input[type='date']").value,
+        message: document.querySelector("textarea").value
+    })
+    .then(function() {
+        alert("Meeting Scheduled & Email Sent!");
+        event.target.reset();
+    }, function(error) {
+        alert("Failed to send email!");
+        console.log(error);
+    });
 }
+</script>
+<!-- PARTICLES.JS BACKGROUND -->
+<div id="particles-js"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<!--background-->
+<script>
+particlesJS("particles-js", {
+  particles: {
+    number: { value: 120 },
+    color: { value: "#ffffff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    move: {
+      enable: true,
+      speed: 3,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out"
+    },
+    line_linked: {
+      enable: true,
+      distance: 150,
+      color: "#ffffff",
+      opacity: 0.4,
+      width: 1
+    }
+  },
+  interactivity: {
+    detect_on: "canvas",
+    events: {
+      onhover: { enable: true, mode: "repulse" },
+      onclick: { enable: true, mode: "push" }
+    }
+  }
+});
+</script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<script>
+(function(){
+  emailjs.init("BAbdw9P0R_Gqsns0t");
+})();
 </script>
 </body>
 </html>
