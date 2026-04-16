@@ -302,7 +302,59 @@ section {
 .nav-links a {
     margin: 0 10px;
 }
+/* MOBILE NAVBAR FIX */
+.menu-toggle {
+    display: none;
+    font-size: 25px;
+    cursor: pointer;
+    color: white;
+}
 
+/* Mobile View */
+@media (max-width: 768px) {
+
+    nav {
+        text-align: right;
+    }
+
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 15px;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .nav-links a {
+        padding: 10px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        display: block;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+}
 </style>
 
 </head>
@@ -312,20 +364,24 @@ section {
 <nav>
     <div class="nav-container">
 
-        <!-- LOGO -->
-        <div class="logo">
-            <img src="jmlogo.jpeg" alt="JM Events">
-        </div>
+    <!-- LOGO -->
+    <div class="logo">
+        <img src="jmlogo.jpeg" alt="JM Events">
+    </div>
 
-        <!-- LINKS -->
-        <div class="nav-links">
-            <a href="#">Home</a>
-            <a href="#about">About</a>
-            <a href="#team">Team</a>
-            <a href="#meeting">Meeting</a>
-            <a href="#gallery">Gallery</a>
-        </div>
+    <!-- MENU BUTTON -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
+    <!-- LINKS -->
+    <div class="nav-links" id="navLinks">
+        <a href="#">Home</a>
+        <a href="#about">About</a>
+        <a href="#team">Team</a>
+        <a href="#meeting">Meeting</a>
+        <a href="#gallery">Gallery</a>
+    </div>
+
+</div>
     </div>
 </nav>
 
@@ -503,6 +559,10 @@ particlesJS("particles-js", {
 (function(){
   emailjs.init("BAbdw9P0R_Gqsns0t");
 })();
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
 </script>
 </body>
 </html>
